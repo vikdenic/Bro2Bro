@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 @interface ViewController ()
 
@@ -14,14 +15,32 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onFBTapped:(UIButton *)sender
+{
+    [self _loginWithFacebook];
+}
+
+
+- (void)_loginWithFacebook {
+    // Set permissions required from the facebook user account
+    NSArray *permissionsArray = @[@"public_profile", @"user_friends", @"email"];
+
+    // Login PFUser using Facebook
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user)
+        {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
 }
 
 @end
