@@ -23,6 +23,8 @@
     [Parse setApplicationId:@"30f7udiaBWLZw0HCe0QZaSWCNLUFr0Oc2AmRyR6P"
                   clientKey:@"1fgCqG2lyQfxeHyXFU3x9cpv5fv5WuQQL163o3yI"];
 
+    [PFUser enableRevocableSessionInBackground];
+
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application

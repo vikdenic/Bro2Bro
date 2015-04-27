@@ -25,17 +25,41 @@
                                     <action selector="onFBTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iah-TA-gX8"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oK4-Tf-mgR" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="KaU-ed-siH"/>
+                                    <constraint firstAttribute="height" constant="128" id="rtc-KJ-eK7"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="KaU-ed-siH"/>
+                                        <exclude reference="rtc-KJ-eK7"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="KaU-ed-siH"/>
+                                        <include reference="rtc-KJ-eK7"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="pHn-Ql-fc6" secondAttribute="centerY" id="JRd-7Z-wNC"/>
+                            <constraint firstItem="oK4-Tf-mgR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="46" id="M6h-jM-kcw"/>
+                            <constraint firstAttribute="centerX" secondItem="oK4-Tf-mgR" secondAttribute="centerX" id="aT2-Pe-0nw"/>
                             <constraint firstAttribute="centerX" secondItem="pHn-Ql-fc6" secondAttribute="centerX" id="xJV-sS-79R"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="pHn-Ql-fc6"/>
+                                <exclude reference="oK4-Tf-mgR"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="M6h-jM-kcw"/>
+                                <exclude reference="aT2-Pe-0nw"/>
                                 <exclude reference="JRd-7Z-wNC"/>
                                 <exclude reference="xJV-sS-79R"/>
                             </mask>
@@ -43,13 +67,19 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="pHn-Ql-fc6"/>
+                                <include reference="oK4-Tf-mgR"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="M6h-jM-kcw"/>
+                                <include reference="aT2-Pe-0nw"/>
                                 <include reference="JRd-7Z-wNC"/>
                                 <include reference="xJV-sS-79R"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="oK4-Tf-mgR" id="k7n-oE-ZdH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
