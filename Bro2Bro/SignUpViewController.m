@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 nektar labs. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SignUpViewController.h"
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Parse/PFFile.h>
 #import <ParseUI/ParseUI.h>
 
-@interface ViewController ()
+@interface SignUpViewController ()
 
 @property (strong, nonatomic) IBOutlet PFImageView *profileImageView;
 
 @end
 
-@implementation ViewController
+@implementation SignUpViewController
 
 - (void)viewDidLoad
 {
@@ -37,7 +37,8 @@
 }
 
 
-- (void)_loginWithFacebook {
+- (void)_loginWithFacebook
+{
     // Set permissions required from the facebook user account
     NSArray *permissionsArray = @[@"public_profile", @"user_friends", @"email"];
 
@@ -46,16 +47,20 @@
         if (!user)
         {
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
-        } else if (user.isNew) {
+        }
+        else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
-        } else {
+        }
+        else
+        {
             NSLog(@"User logged in through Facebook!");
             [self _loadData];
         }
     }];
 }
 
-- (void)_loadData {
+- (void)_loadData
+{
     // ...
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
     
